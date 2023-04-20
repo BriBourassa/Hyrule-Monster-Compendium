@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch, NavLink } from "react-router-dom";
 import MonsterList from "../MonsterList/MonsterList";
 import Nav from "../Nav/Nav";
-// import Monster from "../Monster/Monster";
+import Monster from "../Monster/Monster";
 
 const App = () => {
   const [monsters, setMonsters] = useState([]);
   const [error, setError] = useState('');
+  // const [favMonsters, setFavMonsters] = useState([]);
 
   const getMonsters = async () => {
     const url = "https://botw-compendium.herokuapp.com/api/v2/category/monsters"
@@ -24,9 +25,11 @@ const App = () => {
   }, []);
 
   const handleMonsterView = ((monster) => {
- 
+    if(monster.id)
     console.log(monster)
   })
+
+  // fav and delete function here
 
   return (
     <main className="app">
@@ -35,9 +38,8 @@ const App = () => {
 
       {/* <Switch> */}
 
-        {/* <Route path={`/monster/${monster.id}`}>
-         </Route>  */}
-
+        <Route path={"/monsters/:monsterid"}render={ ({match}) => <Monster monsterid={(match.params.monsterid)}/>}/>
+        
 
         <div className="monster-container">
           {monsters.length > 0 ? <MonsterList monsters={monsters} handleMonsterView={(event) => handleMonsterView(event.target)}/> : <p>{error}</p>}

@@ -13,3 +13,5 @@ const Monster = ({name, image, description, drops}) => {
 };
 
 export default Monster;
+
+

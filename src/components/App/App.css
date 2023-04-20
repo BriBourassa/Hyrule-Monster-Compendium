@@ -7,7 +7,7 @@
 }
 
 .monster-container {
-  /* background: url('../../assets/compendium-border.png') no-repeat; */
+  background: url('../../assets/compendium-border.png') no-repeat;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -16,6 +16,6 @@
   position: absolute;
   padding-top: 80px;
   /* pointer-events: none; */
-  /* z-index: 5; */
+  z-index: 1;
 }
 
