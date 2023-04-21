@@ -1,16 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Monster from "../Monster/Monster";
+import Nav from "../Nav/Nav";
 
-const MonsterList = ({ monsters, handleMonsterView }) => {
+const MonsterList = ({ monsters }) => {
+    console.log(monsters)
   const allMonsters = monsters.map((monster) => {
     return (
       <NavLink to={`/monsters/${monster.id}`} key={monster.id}>
-        <Monster
-          key={monster.id}
-          image={monster.image}
-          handleMonsterView={handleMonsterView}
-        />
+        <div className="monster-view">
+          <img src={monster.image} />
+        </div>
       </NavLink>
     );
   });

@@ -11,7 +11,7 @@ const Nav = () => {
           <NavLink to="/">
             <button>home</button>
           </NavLink>
-          <NavLink to="/favs>">
+          <NavLink to="/favs">
             <button>favorites</button>
           </NavLink>
         </div>

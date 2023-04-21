@@ -3,15 +3,17 @@ import "./App.css";
 import { Route, Switch, NavLink } from "react-router-dom";
 import MonsterList from "../MonsterList/MonsterList";
 import Nav from "../Nav/Nav";
-import Monster from "../Monster/Monster";
+import MonsterDetail from "../MonsterDetail/MonsterDetail";
+import FavList from "../FavList/FavList";
 
 const App = () => {
   const [monsters, setMonsters] = useState([]);
-  const [error, setError] = useState('');
-  // const [favMonsters, setFavMonsters] = useState([]);
+  const [error, setError] = useState("");
+  const [favMonsters, setFavMonsters] = useState([]);
 
   const getMonsters = async () => {
-    const url = "https://botw-compendium.herokuapp.com/api/v2/category/monsters"
+    const url =
+      "https://botw-compendium.herokuapp.com/api/v2/category/monsters";
     try {
       const response = await fetch(url);
       const monsterArray = await response.json();
@@ -24,31 +26,67 @@ const App = () => {
     getMonsters();
   }, []);
 
-  const handleMonsterView = ((monster) => {
-    if(monster.id)
-    console.log(monster)
-  })
+  const handleMonsterView = (id) => {
+    
+    const newMonster = monsters.find((monster) => {
+      // console.log(typeof monster.id, typeof id)
+      return monster.id === +id});
+    
+
+    return <MonsterDetail monster={newMonster} favoriteMonster={favoriteMonster}/>;
+  };
 
   // fav and delete function here
 
-  return (
-    <main className="app">
+  const favoriteMonster = (monster) => {
+    const favs = [monster, ...favMonsters]
+    setFavMonsters(favs)
+    // store only ids, not whole obj
+    // dont store twice
+    // local storage? to persist
+  }
 
-          <Nav />
+  const deleteFavMonster = (favMonster) => {
+    console.log(favMonster)
+    // find by id, remove from array 
+  }
+
+
+  return monsters.length > 0 && (
+    <main className="app">
+      <Nav />
+
+
 
       {/* <Switch> */}
+      <Route
+        exact
+        path="/"
+        render={() => {
+          return <div className="monster-container">
+            <MonsterList monsters={monsters} />
+          </div>;
+        }}
+      />
+          <Route
+            path={"/monsters/:monsterid"}
+            render={({ match }) => handleMonsterView(match.params.monsterid)}
+          />
 
-        <Route path={"/monsters/:monsterid"}render={ ({match}) => <Monster monsterid={(match.params.monsterid)}/>}/>
-        
-
-        <div className="monster-container">
-          {monsters.length > 0 ? <MonsterList monsters={monsters} handleMonsterView={(event) => handleMonsterView(event.target)}/> : <p>{error}</p>}
-        </div>
-
-
-    {/* </Switch> */}
+          <Route
+            path={"/favs"}
+            render={() => {
+              return <div>
+                <FavList favMonsters={favMonsters} deleteFavMonster={deleteFavMonster}/>
+              </div>
+            }}
+          />
+       
+          {/* </Switch> */}
+      
     </main>
   );
+  
 };
 
 export default App;
