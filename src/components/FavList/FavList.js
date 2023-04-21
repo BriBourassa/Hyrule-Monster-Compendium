@@ -1,19 +1,24 @@
 import React from "react";
-import Nav from "../Nav/Nav";
+
+// import { NavLink } from "react-router-dom";
 
 const FavList = ({ favMonsters, deleteFavMonster }) => {
-    // console.log(monsters)
+  console.log(favMonsters)
   const allFavMonsters = favMonsters.map((favMonster) => {
     return (
- 
-        <div className="monster-view" key={favMonster.id}>  
+      
+  
+
+        <div className="monster-view" key={favMonster.id}>
           <img src={favMonster.image} />
-          <button onClick={() => deleteFavMonster(favMonster)}>delete me!</button>
+          <button onClick={() => deleteFavMonster(favMonster)}>
+            delete me!
+          </button>
         </div>
-    
+      
     );
   });
-  return <>{allFavMonsters}</>;
+  return <>{allFavMonsters},</>;
 };
 
 export default FavList;
