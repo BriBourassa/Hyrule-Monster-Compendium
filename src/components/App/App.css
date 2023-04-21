@@ -2,12 +2,10 @@
   border: solid 2px green;
 } */
 
-.app {
-  
-}
+
 
 .monster-container {
-  background: url('../../assets/compendium-border.png') no-repeat;
+  /* background: url('../../assets/compendium-border.png') no-repeat; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

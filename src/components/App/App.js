@@ -27,66 +27,69 @@ const App = () => {
   }, []);
 
   const handleMonsterView = (id) => {
-    
     const newMonster = monsters.find((monster) => {
-      // console.log(typeof monster.id, typeof id)
-      return monster.id === +id});
-    
-
-    return <MonsterDetail monster={newMonster} favoriteMonster={favoriteMonster}/>;
+      return monster.id === +id;
+    });
+    return (
+      <MonsterDetail monster={newMonster} favoriteMonster={favoriteMonster} />
+    );
   };
 
-  // fav and delete function here
-
   const favoriteMonster = (monster) => {
-    const favs = [monster, ...favMonsters]
-    setFavMonsters(favs)
+    const favs = [monster, ...favMonsters];
+    setFavMonsters(favs);
     // store only ids, not whole obj
     // dont store twice
     // local storage? to persist
-  }
+  };
 
   const deleteFavMonster = (favMonster) => {
-    console.log(favMonster)
-    // find by id, remove from array 
-  }
+    console.log(favMonster);
+    // find by id, remove from array
+  };
 
-
-  return monsters.length > 0 && (
-    <main className="app">
-      <Nav />
-
-
-
-      {/* <Switch> */}
-      <Route
-        exact
-        path="/"
-        render={() => {
-          return <div className="monster-container">
-            <MonsterList monsters={monsters} />
-          </div>;
-        }}
-      />
-          <Route
-            path={"/monsters/:monsterid"}
-            render={({ match }) => handleMonsterView(match.params.monsterid)}
-          />
-
-          <Route
-            path={"/favs"}
-            render={() => {
-              return <div>
-                <FavList favMonsters={favMonsters} deleteFavMonster={deleteFavMonster}/>
+  return (
+    monsters.length > 0 && (
+      <main className="app">
+        <Route
+          exact path={"/"}
+          render={() => {
+            return (
+              <div className="monster-container">
+                <Nav />
+                <MonsterList monsters={monsters} />
               </div>
-            }}
-          />
-       
-          {/* </Switch> */}
-      
-    </main>
+            )}}/>
+        <Route
+          path={"/favs"}
+          render={() => {
+            return (
+              <div>
+                <Nav />
+                <FavList
+                  favMonsters={favMonsters}
+                  deleteFavMonster={deleteFavMonster} />
+              </div>
+            )}}/>
+        <Route
+          path={"/monsters/:monsterid"}
+          render={({ match }) => {
+            const foundMonster = monsters.find(
+              (monster) => monster.id === +match.params.monsterid
+            );
+            return (
+              <div>
+                <Nav />
+                <MonsterDetail
+                  monster={foundMonster}
+                  handleMonsterView={handleMonsterView(match.params.monsterid)}
+                  favoriteMonster={favoriteMonster}
+                />
+              </div>
+            )}}/>
+      </main>
+    )
   );
-  
 };
 
 export default App;

@@ -9,10 +9,10 @@ const Nav = () => {
         <h1 className="title">Hyrule Monster compendium</h1>
         <div className="buttons-container">
           <NavLink to="/">
-            <button>home</button>
+            <button className="button">home</button>
           </NavLink>
           <NavLink to="/favs">
-            <button>favorites</button>
+            <button className="button">favorites</button>
           </NavLink>
         </div>
       </div>
