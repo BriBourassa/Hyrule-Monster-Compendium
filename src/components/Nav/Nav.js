@@ -2,13 +2,15 @@ import React from "react";
 import "./Nav.css";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({ monsters, setDisplayedMonsters }) => {
   return (
     <nav className="nav-bar-wrapper">
       <h1 className="title">Hyrule Monster compendium</h1>
       <div className="nav-bar-buttons">
         <Link to="/">
-          <button className="button">home</button>
+          <button className="button" onClick={() => setDisplayedMonsters(monsters)}>
+            home
+          </button>
         </Link>
         <Link to="/favs">
           <button className="button">favorites</button>

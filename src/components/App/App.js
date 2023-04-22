@@ -13,6 +13,7 @@ const App = () => {
   const [favMonsters, setFavMonsters] = useState([]);
   // const [filteredMonsters, setFilteredMonsters] = useState([]);
   const [loading, setLoading] = useState(true)
+  const [displayedMonsters, setDisplayedMonsters] = useState([])
 
   const getMonsters = async () => {
     const url =
@@ -21,6 +22,7 @@ const App = () => {
       const response = await fetch(url);
       const monsterArray = await response.json();
       setMonsters(monsterArray.data);
+      setDisplayedMonsters(monsterArray.data);
       setLoading(false)
     } catch (err) {
       setError(err.message);
@@ -72,15 +74,14 @@ const App = () => {
       {loading && <div>Loading...</div>}
       {!loading && (
         <>
-          <Nav />
-          <Search monsters={monsters}/>
+          <Nav monsters={monsters} setDisplayedMonsters={setDisplayedMonsters}/>
+          <Search monsters={monsters} setDisplayedMonsters={setDisplayedMonsters}/>
 
       <main className="main-wrapper">
- 
         <Switch>
 
           <Route exact path={"/"}>
-            <MonsterList monsters={monsters} />
+            <MonsterList monsters={displayedMonsters} />
           </Route>
 
           <Route exact path={"/favs"}>
@@ -101,7 +102,6 @@ const App = () => {
                 favoriteMonster={favoriteMonster}
                 />
                 )}}/>
-
         </Switch>
       </main>
                 
