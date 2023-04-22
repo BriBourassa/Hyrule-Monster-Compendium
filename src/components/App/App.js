@@ -6,10 +6,12 @@ import Nav from "../Nav/Nav";
 import MonsterDetail from "../MonsterDetail/MonsterDetail";
 import FavList from "../FavList/FavList";
 
+
 const App = () => {
   const [monsters, setMonsters] = useState([]);
   const [error, setError] = useState("");
   const [favMonsters, setFavMonsters] = useState([]);
+  const [filteredMonsters, setFilteredMonsters] = useState([]);
 
   const getMonsters = async () => {
     const url =
@@ -48,48 +50,51 @@ const App = () => {
     // find by id, remove from array
   };
 
+  const searchMonsters = () => {
+    const searchedMonsters = [searchedMonsters]
+    
+  }
+
+  console.log(monsters.filter(monster => monster.name.toLowerCase().includes(filteredMonsters)))
+
   return (
     monsters.length > 0 && (
+    <>
+      
+        <Nav />
+    
       <main className="app">
-        <Route
-          exact path={"/"}
-          render={() => {
-            return (
-              <div className="monster-container">
-                <Nav />
-                <MonsterList monsters={monsters} />
-              </div>
-            )}}/>
-        <Route
-          path={"/favs"}
-          render={() => {
-            return (
-              <div>
-                <Nav />
-                <FavList
-                  favMonsters={favMonsters}
-                  deleteFavMonster={deleteFavMonster} />
-              </div>
-            )}}/>
-        <Route
-          path={"/monsters/:monsterid"}
-          render={({ match }) => {
+         {/* <h2>Click on a monster or search by name/ location!</h2>
+        <input type="text" placeholder="Search Monster" className="search" onChange={(event) => setFilteredMonsters(event.target.value)}
+      /> */}
+        <Switch>
+
+          <Route exact path={"/"}>
+            <MonsterList monsters={monsters} />
+          </Route>
+
+          <Route path={"/favs"}>
+            <FavList
+              favMonsters={favMonsters}
+              deleteFavMonster={deleteFavMonster}
+            />
+          </Route>
+          <Route path={"/monsters/:monsterid"} render={({ match }) => {
+            console.log(match.params, 'setting key! to monsterid,  and value comes from NavLink')
             const foundMonster = monsters.find(
               (monster) => monster.id === +match.params.monsterid
             );
             return (
-              <div>
-                <Nav />
-                <MonsterDetail
-                  monster={foundMonster}
-                  handleMonsterView={handleMonsterView(match.params.monsterid)}
-                  favoriteMonster={favoriteMonster}
-                />
-              </div>
+              <MonsterDetail
+                monster={foundMonster}
+                handleMonsterView={handleMonsterView(match.params.monsterid)}
+                favoriteMonster={favoriteMonster}
+              />
             )}}/>
+        </Switch>
       </main>
+    </>
     )
   );
 };
-
-export default App;
+export default App

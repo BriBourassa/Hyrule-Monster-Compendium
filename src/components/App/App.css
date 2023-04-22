@@ -13,7 +13,8 @@
   background-size: contain;
   position: absolute;
   padding-top: 80px;
-  /* pointer-events: none; */
   z-index: 1;
 }
+
+
 

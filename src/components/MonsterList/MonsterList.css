@@ -1,0 +1,18 @@
+
+
+.monster-container {
+    /* background: url('../../assets/compendium-border.png') no-repeat; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+    background-size: contain;
+    position: absolute;
+    padding-top: 80px;
+    /* z-index: 1; */
+  }
+
+  .testing {
+    width: 100vw;
+    height: 100vh;
+  }

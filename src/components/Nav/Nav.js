@@ -1,6 +1,6 @@
 import React from "react";
 import "./Nav.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -8,12 +8,13 @@ const Nav = () => {
       <div className="nav-bar">
         <h1 className="title">Hyrule Monster compendium</h1>
         <div className="buttons-container">
-          <NavLink to="/">
+          <Link to="/">
             <button className="button">home</button>
-          </NavLink>
-          <NavLink to="/favs">
+          </Link>
+
+          <Link to="/favs">
             <button className="button">favorites</button>
-          </NavLink>
+          </Link>
         </div>
       </div>
     </>
