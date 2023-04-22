@@ -1,19 +1,12 @@
-/* * {
-  border: solid 2px green;
-} */
-
-
-
-.monster-container {
-  /* background: url('../../assets/compendium-border.png') no-repeat; */
+.app {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  
-  background-size: contain;
-  position: absolute;
-  padding-top: 80px;
-  /* pointer-events: none; */
-  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
+.main-wrapper {
+  width: 100vw;
+  height: 90vh;
+}

@@ -2,10 +2,10 @@ import React from "react";
 import './MonsterDetail.css'
 
 const MonsterDetail = ({ monster, favoriteMonster }) => {
-    console.log(monster)
+    // console.log(monster)
     const {name, image, description, drops} = monster
   return (
-    <div className="monster-view">
+    <div className="monster-detail-view">
       <h1>{name.toUpperCase()}</h1>
       <img src={image} />
       <p>{description}</p>

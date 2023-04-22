@@ -1,17 +1,22 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import "./MonsterList.css";
+import MonsterCard from "../MonsterCard/MonsterCard";
 
 const MonsterList = ({ monsters }) => {
   const allMonsters = monsters.map((monster) => {
+    return(
+        <MonsterCard 
+            id = {monster.id}
+            image ={monster.image}
+            key = {monster.id}
+        />
+        )
+    });
     return (
-      <NavLink to={`/monsters/${monster.id}`} key={monster.id}>
-        <div className="monster-view">
-          <img src={monster.image} />
+        <div className="monster-container">
+            {allMonsters}
         </div>
-      </NavLink>
     );
-  });
-  return <>{allMonsters}</>;
 };
 
 export default MonsterList;
