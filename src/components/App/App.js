@@ -5,6 +5,7 @@ import MonsterList from "../MonsterList/MonsterList";
 import Nav from "../Nav/Nav";
 import MonsterDetail from "../MonsterDetail/MonsterDetail";
 import FavList from "../FavList/FavList";
+import Search from "../Search/Search";
 
 const App = () => {
   const [monsters, setMonsters] = useState([]);
@@ -72,6 +73,7 @@ const App = () => {
       {!loading && (
         <>
           <Nav />
+          <Search monsters={monsters}/>
 
       <main className="main-wrapper">
  
