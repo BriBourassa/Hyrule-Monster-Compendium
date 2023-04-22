@@ -11,7 +11,6 @@ const App = () => {
   const [monsters, setMonsters] = useState([]);
   const [error, setError] = useState("");
   const [favMonsters, setFavMonsters] = useState([]);
-  // const [filteredMonsters, setFilteredMonsters] = useState([]);
   const [loading, setLoading] = useState(true)
   const [displayedMonsters, setDisplayedMonsters] = useState([])
 
@@ -50,23 +49,9 @@ const App = () => {
   };
 
   const deleteFavMonster = (id) => {
-  
-    // match by id
     const newFavMonsters = favMonsters.filter((monster) => monster.id !== id)
     setFavMonsters(newFavMonsters)
   };
-
-  // const searchMonsters = (searchInput) => {
-  //   upper and lower case
-
-//change hook state of monsters
-// display what matches the 
-
-  // else return monsters
-    
-  // }
-
-  // console.log(monsters.filter(monster => monster.name.toLowerCase().includes(filteredMonsters)))
 
   return (
     // monsters.length > 0 && (
@@ -75,12 +60,12 @@ const App = () => {
       {!loading && (
         <>
           <Nav monsters={monsters} setDisplayedMonsters={setDisplayedMonsters}/>
-          <Search monsters={monsters} setDisplayedMonsters={setDisplayedMonsters}/>
 
       <main className="main-wrapper">
         <Switch>
 
           <Route exact path={"/"}>
+          <Search monsters={monsters} setDisplayedMonsters={setDisplayedMonsters}/>
             <MonsterList monsters={displayedMonsters} />
           </Route>
 
