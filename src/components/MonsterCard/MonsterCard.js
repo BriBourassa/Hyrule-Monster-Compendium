@@ -7,7 +7,7 @@ const MonsterCard = ({ id, image }) => {
           <div className="monster-card">
             <NavLink to={`/monsters/${id}`} key={id}>
               <div className="monster-view">
-                <img src={image} />
+                <img src={image} alt={`monster${id}`}/>
               </div>
             </NavLink>
           </div>

@@ -1,17 +1,13 @@
-.nav-bar {
-    background-color: aquamarine;
-    height: 80px;
-    width: 100%;
+.nav-bar-wrapper {
+    /* background-color: aquamarine; */
+    height: 10vh;
+    width: 100vw;
     margin: 0;
     position: fixed;
-    z-index: 1;
     cursor: pointer;
+    z-index: 100000;
 }
 
-.title {
-    margin: 0
-}
-
-.button {
+button {
     cursor: pointer;
 }

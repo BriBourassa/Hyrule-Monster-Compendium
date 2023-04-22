@@ -11,14 +11,12 @@ const MonsterList = ({ monsters }) => {
             key = {monster.id}
         />
         )
-        
     });
     return (
         <div className="monster-container">
             {allMonsters}
         </div>
     );
-  
 };
 
 export default MonsterList;

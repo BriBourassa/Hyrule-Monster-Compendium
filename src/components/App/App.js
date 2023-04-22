@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Route, Switch, NavLink } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import MonsterList from "../MonsterList/MonsterList";
 import Nav from "../Nav/Nav";
 import MonsterDetail from "../MonsterDetail/MonsterDetail";
 import FavList from "../FavList/FavList";
 
-
 const App = () => {
   const [monsters, setMonsters] = useState([]);
   const [error, setError] = useState("");
   const [favMonsters, setFavMonsters] = useState([]);
-  const [filteredMonsters, setFilteredMonsters] = useState([]);
+  // const [filteredMonsters, setFilteredMonsters] = useState([]);
+  const [loading, setLoading] = useState(true)
 
   const getMonsters = async () => {
     const url =
@@ -20,6 +20,7 @@ const App = () => {
       const response = await fetch(url);
       const monsterArray = await response.json();
       setMonsters(monsterArray.data);
+      setLoading(false)
     } catch (err) {
       setError(err.message);
     }
@@ -45,56 +46,68 @@ const App = () => {
     // local storage? to persist
   };
 
-  const deleteFavMonster = (favMonster) => {
-    console.log(favMonster);
-    // find by id, remove from array
+  const deleteFavMonster = (id) => {
+  
+    // match by id
+    const newFavMonsters = favMonsters.filter((monster) => monster.id !== id)
+    setFavMonsters(newFavMonsters)
   };
 
-  const searchMonsters = () => {
-    const searchedMonsters = [searchedMonsters]
-    
-  }
+  // const searchMonsters = (searchInput) => {
+  //   upper and lower case
 
-  console.log(monsters.filter(monster => monster.name.toLowerCase().includes(filteredMonsters)))
+//change hook state of monsters
+// display what matches the 
+
+  // else return monsters
+    
+  // }
+
+  // console.log(monsters.filter(monster => monster.name.toLowerCase().includes(filteredMonsters)))
 
   return (
-    monsters.length > 0 && (
-    <>
-      
-        <Nav />
-    
-      <main className="app">
-         {/* <h2>Click on a monster or search by name/ location!</h2>
-        <input type="text" placeholder="Search Monster" className="search" onChange={(event) => setFilteredMonsters(event.target.value)}
-      /> */}
+    // monsters.length > 0 && (
+    <div className="app">
+      {loading && <div>Loading...</div>}
+      {!loading && (
+        <>
+          <Nav />
+
+      <main className="main-wrapper">
+ 
         <Switch>
 
           <Route exact path={"/"}>
             <MonsterList monsters={monsters} />
           </Route>
 
-          <Route path={"/favs"}>
+          <Route exact path={"/favs"}>
             <FavList
               favMonsters={favMonsters}
               deleteFavMonster={deleteFavMonster}
-            />
+              />
           </Route>
+
           <Route path={"/monsters/:monsterid"} render={({ match }) => {
-            console.log(match.params, 'setting key! to monsterid,  and value comes from NavLink')
             const foundMonster = monsters.find(
               (monster) => monster.id === +match.params.monsterid
-            );
-            return (
-              <MonsterDetail
+              );
+              return (
+                <MonsterDetail
                 monster={foundMonster}
                 handleMonsterView={handleMonsterView(match.params.monsterid)}
                 favoriteMonster={favoriteMonster}
-              />
-            )}}/>
+                />
+                )}}/>
+
         </Switch>
       </main>
-    </>
-    )
+                
+      </>
+    )}
+
+     </div>
+   
   );
 };
 export default App
