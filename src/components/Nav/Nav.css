@@ -1,0 +1,17 @@
+.nav-bar {
+    background-color: aquamarine;
+    height: 80px;
+    width: 100%;
+    margin: 0;
+    position: fixed;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.title {
+    margin: 0
+}
+
+.button {
+    cursor: pointer;
+}
