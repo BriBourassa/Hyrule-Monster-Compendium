@@ -22,6 +22,3 @@ const MonsterList = ({ monsters }) => {
 };
 
 export default MonsterList;
-
-// displaying search results
-// parent of search

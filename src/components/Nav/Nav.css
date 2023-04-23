@@ -1,13 +1,7 @@
-/* @font-face {
-    font-family: 'Triforce';
-    src: url(../../assets/Triforce.ttf) 
-  } */
-
-  .title {
+.title {
     font-family: 'Triforce';
     font-size: 90px;
     font-weight: lighter;
-    /* padding-bottom: 20px; */
     margin: 10px;
   }
 
@@ -21,4 +15,5 @@
 
 button {
     cursor: pointer;
+    margin:20px;
 }

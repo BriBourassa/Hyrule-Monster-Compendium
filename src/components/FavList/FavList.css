@@ -1,3 +1,28 @@
-.monster-view{
-    padding-top: 80px;
+.fav-monsters-display{
+    background: url(https://i.imgur.com/hAnbmTP.png) repeat-y;
+    padding-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fav-monster-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 60px #4195fc;
+    /* padding: 10px; */
+    margin: 40px;
+}
+
+h2 {
+    padding-top: 80px
+}
+
+.monster-detail-view {
+    padding:30px;
+    margin:50px;
+    box-shadow: 0px 0px 60px #4195fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

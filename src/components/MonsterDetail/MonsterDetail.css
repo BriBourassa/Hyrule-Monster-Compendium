@@ -1,6 +1,16 @@
-.monster-detail-view {
-    padding:20px
+body {
+    background: url(https://i.imgur.com/hAnbmTP.png) repeat-y;
 }
+
+.monster-detail-view {
+    padding:30px;
+    margin:50px;
+    box-shadow: 0px 0px 60px #4195fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 dt {
     font-weight: bold;
 }
