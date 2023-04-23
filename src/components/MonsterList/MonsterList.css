@@ -7,5 +7,16 @@
   z-index: 1;
   width: 100vw;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  background: url(https://i.imgur.com/hAnbmTP.png) repeat-y;
+  }
+
+  .card {
+    margin:10px;
+  }
+
+  .card:hover {
+    -webkit-box-shadow: 0px 0px 60px #4195fc;
+       -moz-box-shadow: 0px 0px 60px #4195fc;
+            box-shadow: 0px 0px 60px #4195fc;
   }
