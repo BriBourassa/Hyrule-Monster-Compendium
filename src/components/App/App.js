@@ -5,13 +5,14 @@ import MonsterList from "../MonsterList/MonsterList";
 import Nav from "../Nav/Nav";
 import MonsterDetail from "../MonsterDetail/MonsterDetail";
 import FavList from "../FavList/FavList";
+import Search from "../Search/Search";
 
 const App = () => {
   const [monsters, setMonsters] = useState([]);
   const [error, setError] = useState("");
   const [favMonsters, setFavMonsters] = useState([]);
-  // const [filteredMonsters, setFilteredMonsters] = useState([]);
   const [loading, setLoading] = useState(true)
+  const [displayedMonsters, setDisplayedMonsters] = useState([])
 
   const getMonsters = async () => {
     const url =
@@ -20,6 +21,7 @@ const App = () => {
       const response = await fetch(url);
       const monsterArray = await response.json();
       setMonsters(monsterArray.data);
+      setDisplayedMonsters(monsterArray.data);
       setLoading(false)
     } catch (err) {
       setError(err.message);
@@ -47,23 +49,9 @@ const App = () => {
   };
 
   const deleteFavMonster = (id) => {
-  
-    // match by id
     const newFavMonsters = favMonsters.filter((monster) => monster.id !== id)
     setFavMonsters(newFavMonsters)
   };
-
-  // const searchMonsters = (searchInput) => {
-  //   upper and lower case
-
-//change hook state of monsters
-// display what matches the 
-
-  // else return monsters
-    
-  // }
-
-  // console.log(monsters.filter(monster => monster.name.toLowerCase().includes(filteredMonsters)))
 
   return (
     // monsters.length > 0 && (
@@ -71,14 +59,14 @@ const App = () => {
       {loading && <div>Loading...</div>}
       {!loading && (
         <>
-          <Nav />
+          <Nav monsters={monsters} setDisplayedMonsters={setDisplayedMonsters}/>
 
       <main className="main-wrapper">
- 
         <Switch>
 
           <Route exact path={"/"}>
-            <MonsterList monsters={monsters} />
+          <Search monsters={monsters} setDisplayedMonsters={setDisplayedMonsters}/>
+            <MonsterList monsters={displayedMonsters} />
           </Route>
 
           <Route exact path={"/favs"}>
@@ -99,7 +87,6 @@ const App = () => {
                 favoriteMonster={favoriteMonster}
                 />
                 )}}/>
-
         </Switch>
       </main>
                 
