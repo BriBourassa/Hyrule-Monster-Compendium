@@ -8,4 +8,17 @@
   width: 100vw;
   flex-direction: row;
   justify-content: space-around;
+  background: url(https://i.imgur.com/hAnbmTP.png) repeat-y;
+  }
+
+  .card {
+    border: solid 3px rgb(21, 21, 69);
+    margin: 10px
+  }
+
+  .card:hover {
+    outline: 0;
+    -webkit-box-shadow: 0px 0px 50px #96c3fa;
+       -moz-box-shadow: 0px 0px 50px #4195fc;
+            box-shadow: 0px 0px 50px #4195fc;
   }

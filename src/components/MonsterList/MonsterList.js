@@ -5,11 +5,13 @@ import MonsterCard from "../MonsterCard/MonsterCard";
 const MonsterList = ({ monsters }) => {
   const allMonsters = monsters.map((monster) => {
     return(
+        <div className="card">
         <MonsterCard 
             id = {monster.id}
             image ={monster.image}
             key = {monster.id}
         />
+        </div>
         )
     });
     return (
