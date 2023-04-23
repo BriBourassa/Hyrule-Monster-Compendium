@@ -1,3 +1,6 @@
-.monster-view {
-    padding-top: 80px;
+.monster-detail-view {
+    padding:20px
+}
+dt {
+    font-weight: bold;
 }

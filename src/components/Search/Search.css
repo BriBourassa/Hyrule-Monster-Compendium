@@ -1,0 +1,8 @@
+.search-bar {
+    padding-top: 7%;
+    padding-left: 7%
+}
+input {
+    border: 2px solid #4195fc; 
+    width: 20%
+}

@@ -4,9 +4,17 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-image: url(https://i.imgur.com/hAnbmTP.png);
+  color: white
 }
 
 .main-wrapper {
   width: 100vw;
   height: 90vh;
+}
+
+@font-face {
+  font-family: 'Triforce';
+  src: url(../../assets/Triforce.ttf) 
 }

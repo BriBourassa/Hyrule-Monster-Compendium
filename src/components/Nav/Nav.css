@@ -1,13 +1,24 @@
-/* .nav-bar-wrapper {
-    background-color: aquamarine;
+/* @font-face {
+    font-family: 'Triforce';
+    src: url(../../assets/Triforce.ttf) 
+  } */
+
+  .title {
+    font-family: 'Triforce';
+    font-size: 90px;
+    font-weight: lighter;
+    /* padding-bottom: 20px; */
+    margin: 10px;
+  }
+
+.nav-bar-wrapper {
     height: 10vh;
     width: 100vw;
     margin: 0;
-    position: fixed;
-    cursor: pointer;
+    padding: 30px;
     z-index: 100000;
 }
 
 button {
     cursor: pointer;
-} */
+}
