@@ -1,0 +1,30 @@
+{
+  "data" : [
+  {
+  "category": "monsters",
+  "common_locations": [
+  "Mount Lanayru"
+  ],
+  "description": "A spirit of ice has taken the form of this giant dragon. Making its home in the Lanayru region, it's said to have served the Spring of Wisdom since ancient times. An old saying goes, 'The dragon ascends to the heavens as the sun begins to set,' but nobody has seen this in the current age. The ice that coats its body makes it dangerous to get near, but Naydra bears no ill will toward people.",
+  "drops": null,
+  "id": 154,
+  "image": "https://botw-compendium.herokuapp.com/api/v2/entry/naydra/image",
+  "name": "naydra"
+  },
+  {
+    "category": "monsters",
+    "common_locations": [
+    "Eldin Canyon",
+    "Eldin Mountains"
+    ],
+    "description": "The fire that engulfs the bodies of these bat-like Keese makes them more dangerous than the standard type. They're capable of setting fire to anything they touch.",
+    "drops": [
+    "fire keese wing",
+    "keese eyeball"
+    ],
+    "id": 89,
+    "image": "https://botw-compendium.herokuapp.com/api/v2/entry/fire_keese/image",
+    "name": "fire keese"
+    }
+  ]
+}

@@ -17,3 +17,8 @@ button {
     cursor: pointer;
     margin:20px;
 }
+
+.nav-bar-buttons {
+    padding-left: 15%;
+    padding-top: 1%
+}
