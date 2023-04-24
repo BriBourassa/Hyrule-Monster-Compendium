@@ -2,7 +2,7 @@
 
 ## Abstract:
 
-This app was created to search through the monsters of Zelda: Breath of the Wild. You can search by name, location, favorite monsters.
+This app was created to search through the monsters of Zelda: Breath of the Wild. You can search by name, location, favorite and delete monsters from your favorites page.
 
 ## Preview of App:
 
