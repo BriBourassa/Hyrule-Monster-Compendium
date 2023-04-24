@@ -25,6 +25,22 @@
     "id": 89,
     "image": "https://botw-compendium.herokuapp.com/api/v2/entry/fire_keese/image",
     "name": "fire keese"
-    }
+    },
+    {
+      "category": "monsters",
+      "common_locations": [
+      "Eldin Canyon"
+      ],
+      "description": "This enormous monster is naturally camouflaged as molten rock. Neither sword nor arrow can pierce its fiery form. Merely touching its magma-hot body can burn you pretty badly, but you may be able to scale it if you can use something to chill its flames.",
+      "drops": [
+      "flint",
+      "opal",
+      "ruby",
+      "diamond"
+      ],
+      "id": 141,
+      "image": "https://botw-compendium.herokuapp.com/api/v2/entry/igneo_talus/image",
+      "name": "igneo talus"
+      }
   ]
 }
