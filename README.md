@@ -6,6 +6,7 @@ This app was created to search through the monsters of Zelda: Breath of the Wild
 
 ## Preview of App:
 
+<img width="1419" alt="preview-naydra" src="https://user-images.githubusercontent.com/111149043/233893781-6239105c-2501-49ee-907a-f37e935d5b42.png">
 
 ## Learning Goals:
 
