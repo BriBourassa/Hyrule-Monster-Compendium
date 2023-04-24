@@ -21,7 +21,7 @@ const FavList = ({ favMonsters, deleteFavMonster }) => {
       )
     })
   ) : (
-    <div>
+    <div class="no-fav-text">
       <h2>No favorite monsters</h2>
     </div>
   )

@@ -43,9 +43,6 @@ const App = () => {
   const favoriteMonster = (monster) => {
     const favs = [monster, ...favMonsters];
     setFavMonsters(favs);
-    // store only ids, not whole obj
-    // dont store twice
-    // local storage? to persist
   };
 
   const deleteFavMonster = (id) => {
@@ -54,28 +51,23 @@ const App = () => {
   };
 
   return (
-    // monsters.length > 0 && (
     <div className="app">
       {loading && <div>Loading...</div>}
       {!loading && (
         <>
           <Nav monsters={monsters} setDisplayedMonsters={setDisplayedMonsters}/>
-
       <main className="main-wrapper">
         <Switch>
-
           <Route exact path={"/"}>
           <Search monsters={monsters} setDisplayedMonsters={setDisplayedMonsters}/>
             <MonsterList monsters={displayedMonsters} />
           </Route>
-
           <Route exact path={"/favs"}>
             <FavList
               favMonsters={favMonsters}
               deleteFavMonster={deleteFavMonster}
               />
           </Route>
-
           <Route path={"/monsters/:monsterid"} render={({ match }) => {
             const foundMonster = monsters.find(
               (monster) => monster.id === +match.params.monsterid
@@ -92,9 +84,7 @@ const App = () => {
                 
       </>
     )}
-
      </div>
-   
   );
 };
 export default App

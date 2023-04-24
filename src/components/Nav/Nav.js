@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Nav = ({ monsters, setDisplayedMonsters }) => {
   return (
     <nav className="nav-bar-wrapper">
-      <h1 className="title">Hyrule Monster compendium</h1>
+      <h1 className="title">Hyrule Monster Compendium</h1>
       <div className="nav-bar-buttons">
         <Link to="/">
           <button className="button" onClick={() => setDisplayedMonsters(monsters)}>

@@ -5,7 +5,7 @@
   width: 100vw;
   height: 100vh;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  background: url(https://i.imgur.com/hAnbmTP.png) repeat-y;
+  background: url(https://i.imgur.com/hAnbmTP.png) repeat;
   color: white
 }
 
@@ -17,4 +17,25 @@
 @font-face {
   font-family: 'Triforce';
   src: url(../../assets/Triforce.ttf) 
+}
+
+button {
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color: black;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+button:hover {
+  color:#000000;
+  background-color:#FFFFFF;
 }
