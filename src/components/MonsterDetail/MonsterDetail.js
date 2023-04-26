@@ -20,7 +20,7 @@ const MonsterDetail = ({ monster, favoriteMonster }) => {
           <dd>{drops.join(", ")}</dd>
         </dl>
       )}
-      <button onClick={() => favoriteMonster(monster)}>Favorite!</button>
+      <button className="button-fav" onClick={() => favoriteMonster(monster)}>Favorite</button>
     </div>
   );
 };

@@ -1,11 +1,13 @@
 .search-bar {
-    padding-top: 7%;
-    padding-left: 7%;
+    padding-top: 100px;
+    padding-left: 60px;
+    position: relative;
 }
 
 input {
     border: 2px solid #4195fc; 
-    width: 20%;
+    width: 300px;
+    height: 35px;
     display:inline-block;
     padding:0.35em 1.2em;
     border:0.1em solid #FFFFFF;
@@ -15,4 +17,13 @@ input {
     text-decoration:none;
     font-family:'Roboto',sans-serif;
     font-weight:300;
+}
+
+.button-search {
+    font-family: 'Triforce';
+    cursor: pointer;
+    margin:20px;
+    height: 35px;
+    width: 110px;
+    font-size: 20px;
 }

@@ -8,15 +8,16 @@ const Nav = ({ monsters, setDisplayedMonsters }) => {
       <h1 className="title">Hyrule Monster Compendium</h1>
       <div className="nav-bar-buttons">
         <Link to="/">
-          <button className="button" onClick={() => setDisplayedMonsters(monsters)}>
-            home
+          <button className="button-home" onClick={() => setDisplayedMonsters(monsters)}>
+            Home
           </button>
         </Link>
         <Link to="/favs">
-          <button className="button">favorites</button>
+          <button className="button-fav">Favorites</button>
         </Link>
       </div>
     </nav>
   );
 };
+
 export default Nav;

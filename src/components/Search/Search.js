@@ -25,7 +25,7 @@ const Search = ({ monsters, setDisplayedMonsters }) => {
     return (
         <div className="search-bar">
             <input type="text" placeholder="Search Monster or Location!" value={searchQuery} onChange={handleInputChange}/>
-            <button onClick={handleSearchClick}>Search</button>
+            <button className="button-search" onClick={handleSearchClick}>Search</button>
         </div>
     )
 };

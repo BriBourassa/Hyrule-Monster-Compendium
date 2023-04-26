@@ -42,7 +42,10 @@ const App = () => {
 
   const favoriteMonster = (monster) => {
     const favs = [monster, ...favMonsters];
+    const isDuplicate = favMonsters.find((fav) => fav.id === monster.id)
+    if(!isDuplicate){
     setFavMonsters(favs);
+   }
   };
 
   const deleteFavMonster = (id) => {
