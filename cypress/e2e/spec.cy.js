@@ -28,9 +28,15 @@ describe('As a user, I should be able to search, favorite, and delete monsters',
     })
   
     
-    //should be able to favorite monster
+    it('should be able to favorite monster', () => {
 
-    //should be able to delete monster from favorites
+    })
+
+    
+
+    it('should be able to delete monster from favorites', () => {
+      
+    })
 
  
 

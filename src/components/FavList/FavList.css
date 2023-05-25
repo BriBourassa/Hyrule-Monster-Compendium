@@ -1,35 +1,21 @@
-.fav-monsters-display{
-    background: url(https://i.imgur.com/hAnbmTP.png) repeat-y;
+.fav-monsters-display {
     padding-top: 100px;
     display: flex;
     flex-wrap: wrap;
+    /* justify-content: space-around; */
+    /* text-align: center; */
+    margin: 0;
+    text-align: center;
+    padding: 80px;
 }
 
 .fav-monster-view {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0px 0px 60px #4195fc;
+    justify-content: center;
+    /* box-shadow: 0px 0px 60px #4195fc; */
     margin: 40px;
-}
-
-h2 {
-    padding-top: 80px;
-    margin: 60px;
-    margin-left: 400px;
-}
-
-.no-fav-text {
-    text-align: center;
-}
-
-.button-delete {
-    font-family: 'Triforce';
-    cursor: pointer;
-    margin:20px;
-    height: 40px;
-    width: 125px;
-    font-size: 20px;
 }
 
 .monster-detail-view {
@@ -40,3 +26,13 @@ h2 {
     flex-direction: column;
     align-items: center;
 }
+
+.no-fav-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-left: 42%;
+}
+  
+  

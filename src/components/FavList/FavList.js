@@ -16,7 +16,7 @@ const FavList = ({ favMonsters, deleteFavMonster }) => {
       return (
         <div className="fav-monster-view" key={favMonster.id}>
           <img src={favMonster.image} alt={`favMonster${favMonster.id}`}/>
-          <button className="button-delete" onClick={() => deleteFavMonster(favMonster.id)}>Delete</button>
+          <button className="button" onClick={() => deleteFavMonster(favMonster.id)}>Delete</button>
         </div>
       )
     })
