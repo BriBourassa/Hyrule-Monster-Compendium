@@ -11,8 +11,12 @@ const App = () => {
   const [monsters, setMonsters] = useState([]);
   const [error, setError] = useState("");
   const [favMonsters, setFavMonsters] = useState([]);
-  const [loading, setLoading] = useState(true)
-  const [displayedMonsters, setDisplayedMonsters] = useState([])
+  const [loading, setLoading] = useState(true);
+  const [displayedMonsters, setDisplayedMonsters] = useState([]);
+
+  useEffect(() => {
+    getMonsters();
+  }, []);
 
   const getMonsters = async () => {
     const url =
@@ -22,14 +26,11 @@ const App = () => {
       const monsterArray = await response.json();
       setMonsters(monsterArray.data);
       setDisplayedMonsters(monsterArray.data);
-      setLoading(false)
-    } catch (err) {
-      setError(err.message);
+      setLoading(false);
+    } catch (errObj) {
+      setError(errObj.message);
     }
   };
-  useEffect(() => {
-    getMonsters();
-  }, []);
 
   const handleMonsterView = (id) => {
     const newMonster = monsters.find((monster) => {
@@ -42,49 +43,64 @@ const App = () => {
 
   const favoriteMonster = (monster) => {
     const favs = [monster, ...favMonsters];
-    setFavMonsters(favs);
+    const isDuplicate = favMonsters.find((fav) => fav.id === monster.id);
+    if (!isDuplicate) {
+      setFavMonsters(favs);
+    }
   };
 
   const deleteFavMonster = (id) => {
-    const newFavMonsters = favMonsters.filter((monster) => monster.id !== id)
-    setFavMonsters(newFavMonsters)
+    const newFavMonsters = favMonsters.filter((monster) => monster.id !== id);
+    setFavMonsters(newFavMonsters);
   };
 
   return (
     <div className="app">
+      {error && <h2>{error}</h2>}
       {loading && <div>Loading...</div>}
       {!loading && (
         <>
-          <Nav monsters={monsters} setDisplayedMonsters={setDisplayedMonsters}/>
-      <main className="main-wrapper">
-        <Switch>
-          <Route exact path={"/"}>
-          <Search monsters={monsters} setDisplayedMonsters={setDisplayedMonsters}/>
-            <MonsterList monsters={displayedMonsters} />
-          </Route>
-          <Route exact path={"/favs"}>
-            <FavList
-              favMonsters={favMonsters}
-              deleteFavMonster={deleteFavMonster}
-              />
-          </Route>
-          <Route path={"/monsters/:monsterid"} render={({ match }) => {
-            const foundMonster = monsters.find(
-              (monster) => monster.id === +match.params.monsterid
-              );
-              return (
-                <MonsterDetail
-                monster={foundMonster}
-                handleMonsterView={handleMonsterView(match.params.monsterid)}
-                favoriteMonster={favoriteMonster}
+          <Nav
+            monsters={monsters}
+            setDisplayedMonsters={setDisplayedMonsters}
+          />
+          <main className="main-wrapper">
+            <Switch>
+              <Route exact path={"/"}>
+                <Search
+                  monsters={monsters}
+                  setDisplayedMonsters={setDisplayedMonsters}
                 />
-                )}}/>
-        </Switch>
-      </main>
-                
-      </>
-    )}
-     </div>
+                <MonsterList monsters={displayedMonsters} />
+              </Route>
+              <Route exact path={"/favs"}>
+                <FavList
+                  favMonsters={favMonsters}
+                  deleteFavMonster={deleteFavMonster}
+                />
+              </Route>
+              <Route
+                path={"/monsters/:monsterid"}
+                render={({ match }) => {
+                  const foundMonster = monsters.find(
+                    (monster) => monster.id === +match.params.monsterid
+                  );
+                  return (
+                    <MonsterDetail
+                      monster={foundMonster}
+                      handleMonsterView={handleMonsterView(
+                        match.params.monsterid
+                      )}
+                      favoriteMonster={favoriteMonster}
+                    />
+                  );
+                }}
+              />
+            </Switch>
+          </main>
+        </>
+      )}
+    </div>
   );
 };
-export default App
+export default App;

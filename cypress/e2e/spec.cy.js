@@ -9,8 +9,8 @@ describe('As a user, I should be able to search, favorite, and delete monsters',
 
     it('should see the title, "home" and "favorites" buttons  on the landing page', () => {
     cy.get('h1').contains('Hyrule Monster Compendium')
-    cy.get('button').contains('home')
-    cy.get('button').contains('favorites')
+    cy.get('button').contains('Home')
+    cy.get('button').contains('Favorites')
     })
 
     it('should be able to search for a monster by name in the search bar', () => {
@@ -24,13 +24,19 @@ describe('As a user, I should be able to search, favorite, and delete monsters',
       cy.get('input').type('canyon')
       cy.get('button').eq(2).click()
       cy.get(':nth-child(1) > .monster-card > a > .monster-view > img')
-      
+      // cy.get('img').contains('https://botw-compendium.herokuapp.com/api/v2/entry/fire_keese/image')
     })
   
     
-    //should be able to favorite monster
+    it('should be able to favorite monster', () => {
 
-    //should be able to delete monster from favorites
+    })
+
+    
+
+    it('should be able to delete monster from favorites', () => {
+      
+    })
 
  
 

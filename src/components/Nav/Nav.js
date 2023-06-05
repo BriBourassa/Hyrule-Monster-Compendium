@@ -9,14 +9,15 @@ const Nav = ({ monsters, setDisplayedMonsters }) => {
       <div className="nav-bar-buttons">
         <Link to="/">
           <button className="button" onClick={() => setDisplayedMonsters(monsters)}>
-            home
+            Home
           </button>
         </Link>
         <Link to="/favs">
-          <button className="button">favorites</button>
+          <button className="button">Favorites</button>
         </Link>
       </div>
     </nav>
   );
 };
+
 export default Nav;

@@ -1,0 +1,9 @@
+.monster-card {
+    margin:10px;
+}
+
+.monster-card:hover {
+    -webkit-box-shadow: 0px 0px 60px #4195fc;
+       -moz-box-shadow: 0px 0px 60px #4195fc;
+            box-shadow: 0px 0px 60px #4195fc;
+}
