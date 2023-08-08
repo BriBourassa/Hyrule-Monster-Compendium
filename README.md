@@ -8,7 +8,7 @@ This app was created to search through the monsters of Zelda: Breath of the Wild
 
 ## Preview of App:
 
-<img width="1419" alt="preview-font" src="https://user-images.githubusercontent.com/111149043/234651805-300cd31d-d0ce-40ba-a03c-2df69da8f27a.png">
+<img width="1418" alt="hmc-updated" src="https://github.com/BriBourassa/Hyrule-Monster-Compendium/assets/111149043/d6d3d87a-3a14-4040-94e4-c3b96d18bbab">
 
 ## Learning Goals:
 
